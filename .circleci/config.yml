@@ -16,6 +16,7 @@ jobs:
       - macos/switch-ruby:
           version: "3.1.3"
       - run: gem --version && ruby --version
+      - run: echo $PATH
       - run: |
           echo "export ANDROID_HOME=$HOME/android-sdk" >> $BASH_ENV
           source $BASH_ENV
@@ -31,6 +32,7 @@ jobs:
           mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest
       - run: |
           echo y | sdkmanager --licenses 
+      - run: echo $PATH
       - run: gem --version && ruby --version
 workflows:
   workflow-mac:
