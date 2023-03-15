@@ -15,7 +15,6 @@ jobs:
     steps:
       - macos/switch-ruby:
           version: "3.1.2"
-      - run: sysctl machdep.cpu.brand_string
       - run: command -v rbenv
       - run: gem --version
 workflows:
