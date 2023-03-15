@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  mac-os:
+    parameters:
+      version:
+        default: "14.0.1"
+        type: string
+    macos:
+      xcode: << parameters.version >>
+    resource_class: macos.x86.medium.gen2
+    steps:
+      - checkout
+      - run: sysctl machdep.cpu.brand_string
+      - run: command -v rbenv
+workflows:
+  workflow-mac:
+    jobs:
+      - mac-os:
+          matrix:
+            parameters:
+              version: ["14.0.1" ,"14.2.0", "14.3.0"]
