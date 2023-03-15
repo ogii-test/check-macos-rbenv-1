@@ -14,7 +14,7 @@ jobs:
     resource_class: macos.x86.medium.gen2
     steps:
       - macos/switch-ruby:
-          version: "3.1.2"
+          version: "3.1.3"
       - run: gem --version && ruby --version
 workflows:
   workflow-mac:
