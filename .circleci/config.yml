@@ -15,8 +15,7 @@ jobs:
     steps:
       - macos/switch-ruby:
           version: "3.1.2"
-      - run: gem --version
-      - run: ruby --version
+      - run: gem --version && ruby --version
 workflows:
   workflow-mac:
     jobs:
