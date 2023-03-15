@@ -24,7 +24,7 @@ jobs:
           echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH" >> $BASH_ENV
           source $BASH_ENV
       - run: |
-          SDK_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip"
+          SDK_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-mac-9477386_latest.zip"
           mkdir -p ${ANDROID_HOME}/cmdline-tools
           wget -O /tmp/cmdline-tools.zip -t 5 "${SDK_TOOLS_URL}"
           unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_HOME}/cmdline-tools
