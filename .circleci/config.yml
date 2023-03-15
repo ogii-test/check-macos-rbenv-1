@@ -16,7 +16,7 @@ jobs:
       - macos/switch-ruby:
           version: "3.1.2"
       - run: gem --version
-      - run: echo "check"
+      - run: ruby --version
 workflows:
   workflow-mac:
     jobs:
