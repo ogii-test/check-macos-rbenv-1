@@ -24,8 +24,9 @@ jobs:
       - run: sysctl machdep.cpu.brand_string
       - macos/switch-ruby:
           version: "3.1.3"
-      - run: gem --version && ruby --version
+      - run: gem --version && ruby --version && echo $RBENV_ROOT
       - run: echo $PATH
+      - run: echo $RBENV_ROOT
       - run: |
           echo "export ANDROID_HOME=$HOME/android-sdk" >> $BASH_ENV
           source $BASH_ENV
@@ -43,13 +44,7 @@ jobs:
           echo y | sdkmanager --licenses 
       - run: echo $PATH
       - run: |
-          cd ~
-          rm -rf .rbenv/
-          git clone git://github.com/rbenv/rbenv.git .rbenv
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          git clone git://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-          source ~/.bashrc
+          echo $RBENV_ROOT
       - run: 
           command: gem --version && ruby --version
           environment:
