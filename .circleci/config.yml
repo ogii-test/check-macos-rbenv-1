@@ -15,7 +15,7 @@ jobs:
     steps:
       - run:
           name: check user log
-          command: tail -f ~/Library/Logs/**/**/*.log
+          command: tail -f ~/Library/Logs/**/*.log
           background: true
       - run:
           name: check system log
