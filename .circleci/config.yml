@@ -14,8 +14,12 @@ jobs:
     resource_class: macos.m1.large.gen1
     steps:
       - run:
-          name: check log
-          command: tail -f ~/Library/Logs/**/**
+          name: check user log
+          command: tail -f ~/Library/Logs/**/**/*.log
+          background: true
+      - run:
+          name: check system log
+          command: tail -f /private/var/log/**/*.log
           background: true
       - run: sysctl machdep.cpu.brand_string
       - macos/switch-ruby:
