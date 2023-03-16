@@ -42,7 +42,18 @@ jobs:
       - run: |
           echo y | sdkmanager --licenses 
       - run: echo $PATH
-      - run: gem --version && ruby --version
+      - run: |
+          cd ~
+          rm -rf .rbenv/
+          git clone git://github.com/sstephenson/rbenv.git .rbenv
+          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+          git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+          source ~/.bashrc
+      - run: 
+          command: gem --version && ruby --version
+          environment:
+            RBENV_ROOT: ~/
 workflows:
   workflow-mac:
     jobs:
