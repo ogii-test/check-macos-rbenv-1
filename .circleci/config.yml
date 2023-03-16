@@ -13,7 +13,10 @@ jobs:
       xcode: << parameters.version >>
     resource_class: macos.m1.large.gen1
     steps:
-      - run: tail -f ~/Library/Logs/**/**
+      - run:
+          name: check log
+          command: tail -f ~/Library/Logs/**/**
+          background: true
       - run: sysctl machdep.cpu.brand_string
       - macos/switch-ruby:
           version: "3.1.3"
