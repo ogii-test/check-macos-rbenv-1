@@ -11,7 +11,7 @@ jobs:
         type: string
     macos:
       xcode: << parameters.version >>
-    resource_class: macos.x86.medium.gen2
+    resource_class: macos.m1.large.gen1
     steps:
       - macos/switch-ruby:
           version: "3.1.3"
